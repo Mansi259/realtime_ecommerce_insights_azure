@@ -59,7 +59,7 @@ real-time-ecommerce-insights-azure/
 
 ##  Step 1: Data Simulation + Event Streaming
 
- Created a Python simulator to continuously send fake U.S.-based e-commerce orders (TX, NY, CA...) to **Azure Event Hub**. [generate_orders.py](simulator/generate_orders.py)
+ Created a Python simulator to continuously send fake U.S.-based e-commerce orders (TX, NY, CA...) to **Azure Event Hub**. [generate_orders.py]
 
 - Events included `order_id`, `state`, `city`, `product`, `quantity`, `price`, `timestamp`
 - Used Python libraries: `uuid`, `random`, `json`, `time`, `azure-eventhub`
