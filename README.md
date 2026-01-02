@@ -59,7 +59,7 @@ real-time-ecommerce-insights-azure/
 
 ##  Step 1: Data Simulation + Event Streaming
 
- Created a Python simulator to continuously send fake U.S.-based e-commerce orders (TX, NY, CA...) to **Azure Event Hub**. [generate_orders.py]
+ Created a Python simulator to continuously send fake U.S.-based e-commerce orders (TX, NY, CA...) to **Azure Event Hub**.[generate_orders.py](https://github.com/Mansi259/realtime_ecommerce_insights_azure/blob/main/simulators.py)
 
 - Events included `order_id`, `state`, `city`, `product`, `quantity`, `price`, `timestamp`
 - Used Python libraries: `uuid`, `random`, `json`, `time`, `azure-eventhub`
@@ -76,17 +76,17 @@ real-time-ecommerce-insights-azure/
 
 We created a **3-layer Delta Lake architecture** using **Structured Streaming** in PySpark.
 
-###  Bronze Layer [01_stream_orders_to_bronze.py]
+###  Bronze Layer [01_stream_orders_to_bronze.py](https://github.com/Mansi259/realtime_ecommerce_insights_azure/blob/main/01_stream_orders_to_bronze.py)
 - Read streaming data directly from Event Hub
 - Parsed and flattened JSON events
 - Wrote raw data to Azure Blob in Delta format
 
-###  Silver Layer [02_cleaned_values_silver.py]
+###  Silver Layer [02_cleaned_values_silver.py](https://github.com/Mansi259/realtime_ecommerce_insights_azure/blob/main/02_cleaned_values_silver.py)
 - Cleaned, filtered, and type-casted Bronze data
 - Removed nulls, bad records
 - Stored refined data as a Delta table
 
-###  Gold Layer [03_aggregated_to_gold.py]
+###  Gold Layer [03_aggregated_to_gold.py](https://github.com/Mansi259/realtime_ecommerce_insights_azure/blob/main/03_aggregated_to_gold.py)
 - Performed aggregation with **1-minute windows** (not hourly)
 - Grouped by `state`, `product`, and `timestamp`
 - Stored final result table (`gold`) to Blob in Delta
