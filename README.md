@@ -181,8 +181,8 @@ This project delivers a **fully functional real-time analytics pipeline** powere
 ```
 📂 Simulator         → Sends real-time JSON orders to Event Hub
 📂 Databrick Notebooks → Bronze → Silver → Gold PySpark logic
-📂 Power BI          → Final .pbix with charts and map
-📂 CICD              → Git commit history & tracking
+📂 dashboard         → Final .pbix with charts and map
+📂 git commands              → Git commit history & tracking
 ```
 
 ---
